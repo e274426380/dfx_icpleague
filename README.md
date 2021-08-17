@@ -1,5 +1,7 @@
 # League
 
+Dfx version 0.8.0
+
 Start the Internet Computer network on your local computer in your second terminal by running the following command:
 
 ```
@@ -20,6 +22,14 @@ Append `/?canisterId=` and the `league_assets` identifier to the URL.
 For example, the full URL should look similar to the following:
 
 http://127.0.0.1:8000/?canisterId=ryjl3-tyaaa-aaaaa-aaaba-cai
+
+**or**
+
+```
+npm start
+```
+
+visit：http://localhost:8080/
 
 ## Troubleshooting
 
