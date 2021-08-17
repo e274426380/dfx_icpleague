@@ -1,0 +1,40 @@
+{
+  "canisters": {
+    "ele_test": {
+      "main": "src/ele_test/main.mo",
+      "type": "motoko"
+    },
+    "ele_test_assets": {
+      "dependencies": [
+        "ele_test"
+      ],
+      "frontend": {
+        "entrypoint": "src/ele_test_assets/src/index.html"
+      },
+      "source": [
+        "src/ele_test_assets/assets",
+        "dist/ele_test_assets/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": ""
+    }
+  },
+  "dfx": "0.8.0",
+  "networks": {
+    "ic": {
+      "providers": [
+        "https://gw.dfinity.network"
+      ],
+      "type": "persistent"
+    },
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "version": 1
+}
