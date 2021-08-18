@@ -1,7 +1,7 @@
 {
   "canisters": {
     "ele_test": {
-      "main": "src/ele_test/main.mo",
+      "main": "src/ele_test/DappAggregateRoot.mo",
       "type": "motoko"
     },
     "ele_test_assets": {
@@ -16,11 +16,19 @@
         "dist/ele_test_assets/"
       ],
       "type": "assets"
+    },
+	    "photo_service": {
+      "main": "src/photo_service/PhotoAggregateRoot.mo",
+      "type": "motoko"
+    },
+    "log_service": {
+      "main": "src/log_service/Logger.mo",
+      "type": "motoko"
     }
   },
   "defaults": {
     "build": {
-      "packtool": ""
+      "packtool": "vessel sources"
     }
   },
   "dfx": "0.8.0",

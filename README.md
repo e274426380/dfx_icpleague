@@ -1,3 +1,65 @@
+### 配置说明
+
+- 本项目使用motoko-sequence（https://github.com/matthewhammer/motoko-sequence）作为日志数据的存储，需要引用motoko包管理工具：vessel（https://github.com/dfinity/vessel），部署项目前要先修改相关vessel配置
+
+- 1. 安装vessel
+
+    ```
+  ./scripts/vessel-install.sh
+    ```
+
+    验证vessel安装：
+
+    ```
+  $ vessel --version
+  # vessel 0.6.2
+    ```
+
+    如果提示找不到vessel，把vessel所在路径配置到`PATH`环境变量
+
+- 2. 在项目根目录下增加vessel.dhall文件，写上引用的motoko包，或者运行`vessel init`初始化项目
+
+    ```
+  {
+  dependencies = [ "base", "sequence"],
+  compiler = None Text
+  }
+    ```
+
+- 3. 在项目根目录下增加package-set.dhall文件，写上引用的motoko包对应的信息
+
+    ```
+  ...
+  additions = [
+    { name = "base"
+    , repo = "https://github.com/dfinity/motoko-base"
+    , version = "dfx-0.7.2"
+    , dependencies = [] : List Text
+    },
+    
+    { name = "sequence"
+    , repo = "https://github.com/matthewhammer/motoko-sequence"
+    , version = "master"
+    , dependencies = [] : List Text
+    }
+  ]
+  ...
+    ```
+
+- 4. 修改dfx.json文件中defaults->build->packtool to say `"vessel sources"` 如下：
+
+    ```
+   ...
+   "defaults": {
+     "build": {
+       "packtool": "vessel sources"
+     }
+   }
+   ...
+    ```
+
+- 5. 然后运行 `dfx build` 或者 `dfx deploy`。
+
 # League
 
 Dfx version 0.8.0
