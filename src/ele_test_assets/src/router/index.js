@@ -1,27 +1,43 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 
-Vue.use(Router);
+Vue.use(VueRouter)
 
-export default new Router({
-  routes:[
-    {
-      path:'',
-      name:'main',
-      component: () => import('../views/Main.vue'),
-    },
-    {
-      path:'/library',
-      name:'library',
-      component: () => import('../views/library/index.vue'),
-    },
-    {
-      path:'/dapp',
-      name:'dapp',
-      component: () => import('../views/dapp/index.vue'),
-    },
-  ],
-  //默认是hash模式，url带#
-  //history模式，不带#，但是不能在github，fleek中部署
-  // mode:'history'
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: () => import('@/views/Home/Home.vue')
+  },
+  {
+    path: '/library',
+    name: 'Library',
+    component: () => import('@/views/Library/Library.vue')
+  },
+  {
+    path: '/dapp',
+    name: 'Dapp',
+    component: () => import('@/views/Dapp/Dapp.vue')
+  },
+  {
+    path: '/hackathon',
+    name: 'Hackathon',
+    component: () => import('@/views/Hackathon/Hackathon.vue')
+  },
+  {
+    path: '/sponsor',
+    name: 'Sponsor',
+    component: () => import('@/views/Sponsor/Sponsor.vue')
+  }
+]
+
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes,
+  scrollBehavior() {
+    return { x: 0, y: 0 }
+  }
 })
+
+export default router

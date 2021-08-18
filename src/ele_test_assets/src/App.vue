@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <router-view />
   </div>
 </template>
 
@@ -21,14 +21,11 @@ export default {
 
 	const agent = new HttpAgent();
 	agent.fetchRootKey();
-	const ele_test = Actor.createActor(ele_test_idl, { agent, canisterId: ele_test_id });
-	  ele_test.greet(window.prompt("Enter your name:")).then(greeting => {
-      this.internetComputerGreeting = greeting
-    });
+	//const ele_test = Actor.createActor(ele_test_idl, { agent, canisterId: ele_test_id });
+	//  ele_test.greet(window.prompt("Enter your name:")).then(greeting => {
+   //   this.internetComputerGreeting = greeting
+  //  });
   }
 }
 </script>
-<style>
-  @import './assets/css/container.css';
-  @import './assets/css/font.css';
-</style>
+
